@@ -4,10 +4,11 @@
   "description": "Simple exercise to test CI/CD pipeline",
   "main": "app.ts",
   "scripts": {
-    "build": "npm install && npm run lint && npm run prettier:check && npm run test && tsc",
+    "build": "npm install && npm run lint && npm run prettier:check && npm run test && npm run sass && tsc",
     "start": "node ./dist/app.js",
     "dev": "nodemon ./dist/app.js",
     "ts:watch": "tsc --watch",
+    "sass": "sass ./src/styles:./public/css",
     "sass:watch": "sass --watch ./src/styles:./public/css",
     "prettier:fix": "prettier --write ./src/**/*.ts",
     "prettier:check": "prettier --check ./src/**/*.ts",

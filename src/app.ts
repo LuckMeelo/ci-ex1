@@ -1,41 +1,24 @@
-type Role =  "admin" | "user" | "guest";
+import http from 'http';
+import dotenv from 'dotenv';
 
-interface Product {
-    readonly id: number;
-    name: string;
-    price?: number;
-}
+dotenv.config(); // Load environment variables from .env
 
-interface User {
-    firstName: string;
-    lastName: string;
-    age: number;
-    role: Role;
-    isActive: boolean;
-    createdAt?: Date;
-    products: Product[];
-}
+const server = http.createServer((req, res) => {
+    if (req.url === '/') {
+        const homePage = `
+            <!DOCTYPE html>
+            <html lang="en">
+                <h1>Welcome to the Home Page</h1>
+            </html>
+        `;
 
-let user: User = {
-    firstName: "John",
-    lastName: "Doe",
-    age: 30,
-    role: "user",
-    isActive: true,
-    createdAt: new Date(),
-    products: [
-        {
-            id: 1,
-            name: "Product 1",
-            price: 20,
-        },
-        {
-            id: 2,
-            name: "Product 2",
-        }
-    ]
-}
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(homePage);
+    }
+});
 
-const fullName = (user: User): string => {
-    return `${user.firstName} ${user.lastName}`;
-}
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});

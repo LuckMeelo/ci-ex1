@@ -1,9 +1,8 @@
-import { User } from "../src/user";
-import { getUserFullName } from "../src/utils";
+import { User } from "../user";
+import { getUserFullName } from "../utils";
 
 describe("Get user's fullname", () => {
   it("should return the user's fullName", () => {
-
     const user: User = {
       firstName: "John",
       lastName: "Doe",

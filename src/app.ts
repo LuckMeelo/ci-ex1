@@ -14,6 +14,7 @@ const server = http.createServer((req, res) => {
                 </head>
                 <div class="app__message">
                     <h1>Hello World</h1>
+                    <button onclick="alert('Button clicked!')">Click Me</button>
                 </div>
             </html>
         `;

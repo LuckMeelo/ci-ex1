@@ -4,7 +4,7 @@
   "description": "Simple exercise to test CI/CD pipeline",
   "main": "app.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "npm install && npm run lint && npm run prettier:check && npm run test && tsc",
     "start": "node ./dist/app.js",
     "dev": "nodemon ./dist/app.js",
     "ts:watch": "tsc --watch",
@@ -12,7 +12,7 @@
     "prettier:fix": "prettier --write ./src/**/*.ts",
     "prettier:check": "prettier --check ./src/**/*.ts",
     "lint": "eslint ./src --ext .ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,12 +27,15 @@
   "homepage": "https://github.com/LuckMeelo/ci-ex1#readme",
   "devDependencies": {
     "@eslint/js": "^9.24.0",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.14.1",
     "eslint": "^9.24.0",
     "globals": "^16.0.0",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.9",
     "prettier": "^3.5.3",
     "sass": "^1.86.3",
+    "ts-jest": "^29.3.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.29.1"
   },
